@@ -20,8 +20,6 @@ jobs:
           MYSQL_USER: user
           MYSQL_PASSWORD: user
           TZ: "Asia/Tokyo"
-        ports:
-          - 3306:3306
     steps:
       - name: Clone repository
         uses: actions/checkout@v2
@@ -31,6 +29,7 @@ jobs:
       - name: Build web component
         run: |
           docker-compose build web
+          docker-compose exec -T db service mysql status
       - name: Make migrations
         run: |
           docker-compose run web ./manage.py makemigrations
