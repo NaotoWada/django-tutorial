@@ -7,15 +7,20 @@ on:
     types: [opened]
     branches: [master]
 
+env:
+  GITHUB_USER: NaotoWada
+  GITHUB_EMAIL: naoto.oct25@gmail.com
+
 jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
       - name: Clone repository
         uses: actions/checkout@v2
-      - name: Confirm working directory
+      - name: Setup git user
         run: |
-          pwd
+          git config --local user.name "${GITHUB_USER}"
+          git config --local user.email "${GITHUB_EMAIL}"
       - name: Change chmod
         run: |
           chmod +x manage.py
