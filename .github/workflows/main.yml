@@ -16,7 +16,7 @@ jobs:
       - name: Confirm working directory
         run: |
           pwd
-          ll
+          ls -al
       - name: Docker compose up
         run: |
           docker-compose build web
