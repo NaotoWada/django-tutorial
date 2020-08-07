@@ -22,7 +22,7 @@
 
 [installing-an-official-release-with-pip](https://docs.djangoproject.com/ja/3.0/topics/install/#installing-an-official-release-with-pip)
 
-# Env
+# Environment
 
 - Ubuntu 18.04
   `cat /etc/os-release`
