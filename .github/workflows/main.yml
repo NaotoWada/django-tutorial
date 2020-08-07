@@ -14,7 +14,16 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_DATABASE: tutorial
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_USER: user
+          MYSQL_PASSWORD: user
+          TZ: "Asia/Tokyo"
+        options: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+        volumes:
+          - ./var/lib/mysql
+          - ./docker/db/sql:/sql/init.sql
         ports:
           - 3306:3306
     steps:
