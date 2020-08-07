@@ -13,10 +13,10 @@ jobs:
     services:
       mysql:
         image: mysql:5.7
-      env:
-        MYSQL_DATABASE: tutorial
-      ports:
-        - "3306:3306"
+        env:
+          MYSQL_DATABASE: tutorial
+        ports:
+          - 3306:3306
     steps:
       - name: Clone repository
         uses: actions/checkout@v2
