@@ -13,12 +13,16 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v2
-      - name: Change chmod
+      - name: Change chmod to manage.py
         run: |
           chmod +x manage.py
-      - name: Docker compose up
+      - name: Build web component
         run: |
           docker-compose build web
+      - name: Make migrations
+        run: |
+        docker-compose run web ./manage.py makemigrations
+        docker-compose run web ./manage.py migrate
       - name: Do tests
         run: |
-          sudo docker-compose run web ./manage.py test
+          docker-compose run web ./manage.py test
