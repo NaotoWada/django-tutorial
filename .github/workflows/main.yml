@@ -16,7 +16,11 @@ jobs:
       - name: Confirm working directory
         run: |
           pwd
-          ls -al
+      - name: Confirm working directory
+        run: |
+          chmod +x manage.py
+          git add manage.py
+          git commit
       - name: Docker compose up
         run: |
           docker-compose build web
