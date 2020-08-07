@@ -30,6 +30,8 @@ jobs:
         run: |
           docker-compose build web
           docker-compose up -d
+          sleep 30s
+          docker ps -a
       - name: Do tests
         run: |
           docker-compose run web ./manage.py test
