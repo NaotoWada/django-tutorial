@@ -21,7 +21,7 @@ jobs:
           docker-compose build web
       - name: Make migrations
         run: |
-          docker-compose run web ./manage.py makemigrations |
+          docker-compose run web ./manage.py makemigrations
       - name: Migrate
         run: |
           docker-compose run web ./manage.py migrate
