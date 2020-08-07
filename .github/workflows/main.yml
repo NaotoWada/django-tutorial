@@ -30,8 +30,12 @@ jobs:
         run: |
           docker-compose build web
           docker-compose up -d
-          sleep 30s
+          sleep 10s
           docker ps -a
+      - name: Migrate
+        run: |
+          docker-compose run web ./manage.py makemigrations
+          docker-compose run web ./manage.py migrate
       - name: Do tests
         run: |
           docker-compose run web ./manage.py test
