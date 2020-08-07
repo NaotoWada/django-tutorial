@@ -16,9 +16,10 @@ jobs:
       - name: Confirm working directory
         run: |
           pwd
+          ll
       - name: Docker compose up
         run: |
           docker-compose build web
       - name: Do tests
         run: |
-          docker-compose run web ./manage.py test
+          sudo docker-compose run web ./manage.py test
