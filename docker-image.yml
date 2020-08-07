@@ -1,0 +1,24 @@
+name: Docker Django CI Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    types: [opened]
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+      - name: Docker compose up
+        run: |
+          docker-compose build web
+      - name: Migrate Database
+        run: |
+          docker-compose run web ./manage.py migrate
+      - name: Do tests
+        run: |
+          docker-compose run web ./manage.py test
