@@ -16,7 +16,7 @@ jobs:
       - name: Confirm working directory
         run: |
           pwd
-      - name: Confirm working directory
+      - name: Change chmod
         run: |
           chmod +x manage.py
           git add manage.py
