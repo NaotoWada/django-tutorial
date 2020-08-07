@@ -29,12 +29,10 @@ jobs:
       - name: Build web component
         run: |
           docker-compose build web
-          docker-compose exec -T db service mysql status
-      - name: Make migrations
-        run: |
-          docker-compose run web ./manage.py makemigrations
+          docker-compose up
       - name: Migrate
         run: |
+          docker-compose run web ./manage.py makemigrations
           docker-compose run web ./manage.py migrate
       - name: Do tests
         run: |
