@@ -29,7 +29,7 @@ jobs:
       - name: Build web component
         run: |
           docker-compose build web
-          docker-compose up db -d
+          docker-compose up -d
       - name: Migrate
         run: |
           docker-compose run web ./manage.py makemigrations
