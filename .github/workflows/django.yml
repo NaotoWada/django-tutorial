@@ -45,4 +45,4 @@ jobs:
           echo Done setup
       - name: Run Tests
         run: |
-          python3 manage.py test
+          docker-compose run web ./manage.py test
