@@ -36,7 +36,7 @@ jobs:
         run: |
           docker-compose run web ./manage.py makemigrations
           docker-compose run web ./manage.py migrate
-      - names: Grant mysql user
+      - name: Grant mysql user
         run: |
           docker-compose exec -t mysql bash
           mysql -uroot -proot
