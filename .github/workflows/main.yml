@@ -38,7 +38,7 @@ jobs:
           docker-compose run web ./manage.py migrate
       - name: Grant mysql user
         run: |
-          docker-compose exec -t mysql bash
+          docker exec -t mysql bash
           mysql -uroot -proot
           GRANT ALL ON tutorial.* TO user;
           GRANT ALL ON test_tutorial.* TO user;
