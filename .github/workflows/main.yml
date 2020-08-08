@@ -19,7 +19,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: root
           TZ: "Asia/Tokyo"
         volumes:
-          - ./var/lib/mysql
+          - mysql:/volume_mount
           - ./docker/db/sql:/sql/init.sql
     steps:
       - name: Clone repository
