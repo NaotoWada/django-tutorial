@@ -43,4 +43,4 @@ jobs:
           echo done!
       - name: Execute tests
         run: |
-          python3 manage.py test
+          python manage.py test
