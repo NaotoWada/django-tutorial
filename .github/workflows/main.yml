@@ -18,9 +18,7 @@ jobs:
           MYSQL_DATABASE: tutorial
           MYSQL_ROOT_PASSWORD: root
           TZ: "Asia/Tokyo"
-        volumes:
-          - mysql:/volume_mount
-          - ./docker/db/sql:/sql/init.sql
+        options: --health-cmd "mysqladmin ping -h localhost" --health-interval 20s --health-timeout 10s --health-retries 10
     steps:
       - name: Clone repository
         uses: actions/checkout@v2
