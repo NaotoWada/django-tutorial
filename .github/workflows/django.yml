@@ -35,7 +35,7 @@ jobs:
           docker-compose build web
           docker-compose up -d
           sleep 15s
-          docker pa -a
+          docker ps -a
       - name: Grant user
         run: |
           echo setup...
