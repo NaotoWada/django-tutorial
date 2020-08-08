@@ -17,8 +17,6 @@ jobs:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_DATABASE: tutorial
           MYSQL_ROOT_PASSWORD: root
-          MYSQL_USER: user
-          MYSQL_PASSWORD: user
           TZ: "Asia/Tokyo"
     steps:
       - name: Clone repository
