@@ -38,4 +38,4 @@ jobs:
           docker-compose run web ./manage.py migrate
       - name: Do tests
         run: |
-          docker-compose exec web ./manage.py test
+          docker-compose run web ./manage.py test
