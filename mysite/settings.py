@@ -83,7 +83,6 @@ DATABASES = {
         "HOST": "db",
         "PORT": "3306",
         "TEST": {"NAME": "test_tutorial",},
-        "OPTIONS": {"init_command": "GRANT ALL ON test_tutorial.* TO user;",},
     }
 }
 
