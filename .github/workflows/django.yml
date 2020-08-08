@@ -27,5 +27,10 @@ jobs:
           docker ps -a
       - name: Execute tests
         run: |
+          echo Copy sql file to docker container from host
+          docker cp sql/init.sql mysql:home/user
+          docker exec -u 1000 mysql home/user/init.sql > /dev/null
+
+          echo execute test
           chmod +x manage.py
-          docker-compose run web ./manage.py test
+          docker exec django python manage.py test
