@@ -39,7 +39,3 @@ jobs:
       - name: Execute tests
         run: |
           python3 manage.py test
-        env:
-          DB_HOST: 127.0.0.1
-          DB_PASSWORD: root
-          DB_USER: root
