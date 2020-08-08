@@ -124,3 +124,21 @@ class QuestionDetailViewTests(TestCase):
         url = reverse("polls:detail", args=(past_question.id,))
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
+
+
+def setup():
+    print("Grant all user to user")
+    from django.db import connection
+
+    queries = [
+        "GRANT ALL ON tutorial.* TO user",
+        "GRANT ALL ON test_tutorial.* TO user",
+    ]
+    with connection.cursor() as cur:
+        for query in queries:
+            cur.execute(query)
+
+    print("granted.")
+
+
+setup()
