@@ -39,7 +39,7 @@ jobs:
       - name: Grant user
         run: |
           echo setup...
-          mysql -h 127.0.0.1 --port 3306 -u root -proot -e "$(cat $(find ./ -name init.sql))"
+          mysql -h 127.0.0.1 --port 3306 -u root -proot -e "GRANT ALL ON test_tutorial.* TO user;"
           echo done!
       - name: Execute tests
         run: |
