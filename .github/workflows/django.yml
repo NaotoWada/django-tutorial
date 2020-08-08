@@ -27,4 +27,5 @@ jobs:
           docker ps -a
       - name: Execute tests
         run: |
+          chmod +x manage.py
           docker-compose run web ./manage.py test
