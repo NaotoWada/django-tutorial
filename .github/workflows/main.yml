@@ -18,6 +18,9 @@ jobs:
           MYSQL_DATABASE: tutorial
           MYSQL_ROOT_PASSWORD: root
           TZ: "Asia/Tokyo"
+        volumes:
+          - ./var/lib/mysql
+          - ./docker/db/sql:/sql/init.sql
     steps:
       - name: Clone repository
         uses: actions/checkout@v2
