@@ -28,7 +28,7 @@ jobs:
       - name: Grant to user at container mysql
         run: |
           echo grant user to test databases directly
-          docker exec -t mysql mysql -uroot -proot -e'GRANT ALL ON test_tutorial.* TO user;'
+          docker exec -t mysql mysql -u${{ secrets.MYSQL_ROOT_USER }} -p${{ secrets.MYSQL_ROOT_PASS }} -e'GRANT ALL ON test_tutorial.* TO user;'
       - name: Execute tests
         run: |
           chmod +x manage.py
